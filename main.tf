@@ -12,12 +12,12 @@ provider "docker" {
 }
 
 # Pulls the image
-resource "docker_image" "ubuntu" {
-  name = "ubuntu:latest"
+resource "docker_image" "nodered_image" {
+  name = "nodered/node-red:latest"
 }
 
 # Create a container
-resource "docker_container" "hello_ubuntu" {
-  image = docker_image.ubuntu.image_id
-  name  = "hello_ubuntu"
+resource "docker_container" "hello_nodered" {
+  image = docker_image.nodered_image.image_id
+  name  = "hello_nodered"
 }
