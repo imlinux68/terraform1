@@ -25,3 +25,7 @@ resource "docker_container" "hello_nodered" {
     external = 1880
   }
 }
+
+output "IP_Address" {
+    value = docker_container.hello_nodered.network_data[0].ip_address
+}
