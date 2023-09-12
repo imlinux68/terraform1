@@ -20,4 +20,8 @@ resource "docker_image" "nodered_image" {
 resource "docker_container" "hello_nodered" {
   image = docker_image.nodered_image.image_id
   name  = "hello_nodered"
+  ports {
+    internal = 1880
+    external = 1880
+  }
 }
